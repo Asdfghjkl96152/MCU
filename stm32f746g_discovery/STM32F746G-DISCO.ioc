@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder .ioc file for STM32F746G-DISCOVERY.
-     NOTE: This is a placeholder guidance file. For a valid .ioc, open STM32CubeIDE, create a new project
-     for STM32F746G-DISCO, configure I2S (Master Rx), DMA (circular), FreeRTOS, USART2, FMC/SDRAM (optional),
-     then save the .ioc file in this folder. -->
 <project>
   <name>stm32f746g_discovery</name>
-  <description>Placeholder IOC - generate actual project in STM32CubeIDE</description>
+  <type>board</type>
+  <board>STM32F746G-DISCO</board>
+  <mcu>STM32F746NGHx</mcu>
+  <version>1.0</version>
+  <description>Auto-generated IOC for STM32F746G-DISCOVERY: I2S (SAI) Rx, DMA circular, USART2, FreeRTOS, FMC/SDRAM enabled.</description>
+  <settings>
+    <clock>
+      <hse>8000000</hse>
+      <sysclk>216000000</sysclk>
+    </clock>
+    <peripherals>
+      <uart name="USART2" enabled="true">
+        <mode>Asynchronous</mode>
+        <remap>None</remap>
+        <tx>PA2</tx>
+        <rx>PA3</rx>
+        <baudrate>115200</baudrate>
+      </uart>
+      <i2s name="I2S2" enabled="true">
+        <instance>I2S2</instance>
+        <mode>Master Rx</mode>
+        <audio_frequency>16000</audio_frequency>
+        <data_format>16b</data_format>
+        <mclk>Disabled</mclk>
+        <ws>PB12</ws>
+        <sck>PB13</sck>
+        <sd>PB15</sd>
+        <dma>
+          <request>DMA_REQUEST_I2S2EXT_RX</request>
+          <mode>circular</mode>
+          <direction>peripheral_to_memory</direction>
+        </dma>
+      </i2s>
+      <dma enabled="true">
+        <stream>DMA1_Stream3</stream>
+      </dma>
+      <fmc_sdram enabled="true">
+        <banks>YES</banks>
+      </fmc_sdram>
+      <freertos enabled="true">
+        <os>CMSIS_RTOS_V2</os>
+      </freertos>
+    </peripherals>
+    <nvic>
+      <priorityGrouping>4</priorityGrouping>
+    </nvic>
+  </settings>
+  <files>
+    <file path="Src/main.c" role="main"/>
+  </files>
 </project>
