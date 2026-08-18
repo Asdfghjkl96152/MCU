@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder .ioc file for STM32F746G-DISCOVERY.
+     NOTE: This is a placeholder guidance file. For a valid .ioc, open STM32CubeIDE, create a new project
+     for STM32F746G-DISCO, configure I2S (Master Rx), DMA (circular), FreeRTOS, USART2, FMC/SDRAM (optional),
+     then save the .ioc file in this folder. -->
+<project>
+  <name>stm32f746g_discovery</name>
+  <description>Placeholder IOC - generate actual project in STM32CubeIDE</description>
+</project>
